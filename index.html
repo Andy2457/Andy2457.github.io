@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniket Pawar | Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 2rem;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2563eb;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+        }
+
+        .skill-card li {
+            padding: 0.5rem 0;
+            color: #555;
+        }
+
+        .skill-card li:before {
+            content: "▹ ";
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #2563eb;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+            color: #2563eb;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">AP</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- Replace 'profile.jpg' with your actual photo file name -->
+            <img src="profile.jpg" alt="Aniket Pawar" class="profile-img">
+            <h1>Aniket Sharad Pawar</h1>
+            <p class="tagline">Software Engineer | Python • AI/ML • Full-Stack</p>
+            <div>
+                <a href="#projects" class="btn">View Projects</a>
+                <a href="resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    Recent Electronics & Computer Science Engineering graduate from Pillai HOC College of Engineering & Technology with a strong foundation in AI/ML and full-stack development. 
+                    I specialize in building intelligent solutions using deep learning, computer vision, and modern web technologies. 
+                    My work includes developing a hybrid malware detection system achieving 94% accuracy and creating event management platforms serving thousands of users.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    I'm passionate about cybersecurity, artificial intelligence, and creating impactful software that solves real-world problems. 
+                    Currently seeking opportunities to contribute to innovative projects as a Software Engineer.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Frameworks & Libraries</h3>
+                    <ul>
+                        <li>React.js</li>
+                        <li>Flask</li>
+                        <li>TensorFlow/Keras</li>
+                        <li>OpenCV</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>AI/ML & Data Science</h3>
+                    <ul>
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                        <li>CNNs</li>
+                        <li>Scikit-learn</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git/GitHub</li>
+                        <li>MySQL</li>
+                        <li>Linux</li>
+                        <li>API Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">🛡️</div>
+                    <div class="project-content">
+                        <h3>Hybrid Malware Detection System</h3>
+                        <p>
+                            Achieved 94% detection accuracy by combining static image analysis and network traffic patterns using ensemble deep learning models trained on 25,000+ samples.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">CNN</span>
+                            <span class="tech-tag">PyQt5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">🎉</div>
+                    <div class="project-content">
+                        <h3>Euforia Fest Management Platform</h3>
+                        <p>
+                            Built event website and automated pass scanning system serving 10,000+ attendees. Reduced manual entry time by 80% through QR-based validation.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML/CSS/JS</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Tkinter</span>
+                            <span class="tech-tag">Google Sheets API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">🎵</div>
+                    <div class="project-content">
+                        <h3>Emotion-Based Music Player</h3>
+                        <p>
+                            Built real-time facial emotion detection system using CNN achieving 78% accuracy across 7 emotion categories. Integrated Spotify API for mood-based recommendations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OpenCV</span>
+                            <span class="tech-tag">Keras</span>
+                            <span class="tech-tag">Spotify API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+                I'm currently looking for new opportunities. Feel free to reach out!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:aniketpawar2457@gmail.com" class="contact-link">
+                    <span>📧</span> Email
+                </a>
+                <a href="https://linkedin.com/in/aniketpawar2457" target="_blank" class="contact-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="https://github.com/Andy2457" target="_blank" class="contact-link">
+                    <span>💻</span> GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Aniket Pawar. Built with passion and code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
